@@ -20,16 +20,16 @@ module.exports = {
     port: 80,
     https: false,
     hotOnly: false,
-    proxy: {
-      '/api/': {
-        target: 'http://www.royole.com/',
-        ws: true,
-        changOrigin: true,
-        pathRewrite:{
-          '^/api/':'/'
-        }
-      }
-    },
+    // proxy: {
+    //   '/api/': {
+    //     target: 'http://www.royole.com/',
+    //     ws: true,
+    //     changOrigin: true,
+    //     pathRewrite:{
+    //       '^/api/':'/'
+    //     }
+    //   }
+    // },
     //before: app => {}
   }
 };
