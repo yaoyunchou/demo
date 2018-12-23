@@ -9,7 +9,6 @@
             <a>
               <img class="logo-img" src="@/assets/images/rheader/logo.png">
             </a>
-            <a href="/products"><span>首页</span>  </a>
             <a>
               <span>学校产品</span>
             </a>
@@ -36,8 +35,7 @@
           <a href="/" class="logo-img-a">
             <img class="logo-img" src="@/assets/images/rheader/logo_blue.png">
           </a>
-          <router-link tag="a" @mouseenter="navBodyShow(4)" to="/products"><span>首页</span>  </router-link>
-          <a @mouseenter="navBodyShow(1)" @click="navBodyClickShow(1)">
+          <a   @mouseenter="navBodyShow(1)" @click="navBodyClickShow(1)">
             <span :class="navHoverChosed[1]">学校产品</span>
           </a>
           <a @mouseenter="navBodyShow(3)" @click="navBodyClickShow(3)">
@@ -241,7 +239,6 @@ export default {
     },
     //PC端下，鼠标划入则显示对应的二级导航相关
     navBodyShow(index) {
-      if (this.deviceWidth < 900) return;
       //动画展示导航下蓝色滑动条
       this.navHoverChosed = ["", "", "", ""];
       this.navHoverChosed[index] = "chosed";
@@ -368,7 +365,7 @@ export default {
             window.location.href = this.$url + "/product-list";
             break;
           case 1:
-            window.location.href = this.$url + "/solutions";
+            window.location.href =  "/#/products";
             break;
           default:
             break;

@@ -3,10 +3,11 @@
     <SwiperBanner></SwiperBanner>
     <div class="flex-box clearfix">
       <h2>校园特色</h2>
-      <div class="flex-display">
-        <a href="javascript:;" class="nav_link">
+      <div class="flex-display flex-display-new">
+        <a href="javascript:;" class="nav_link flex_l">
           <img src="http://www.szza.edu.cn/uploads/allimg/170710/1-1FG011395I03.jpg" alt="">
-          <div>
+        </a>
+         <div class="flex_r text">
             <h3>优质的师资力量</h3>
             <p>深圳市桃源居中澳实验学校位于全国和谐社区、</p>
             <p>教育示范社区——宝安西乡桃源社区，</p>
@@ -17,12 +18,9 @@
             <p>走读双制管理的十二年一贯制民办实验学校，</p>
             <p>更是一所令人羡慕的公园里的学校。</p>
           </div>
-        </a>
       </div>
-      <div class="flex-sensior">
-        <a href="" class="nav_link">
-          <img src="http://www.szza.edu.cn/uploads/allimg/160603/1-160603152534215.jpg" alt="柔性传感器">
-          <div>
+      <div class=" flex-display-new flex-sensior">
+         <div class="flex_l text">
             <h3>优美的校园环境</h3>
             <p>鸟瞰图 学校风景 学校正门 每天拾级而上，</p>
             <p>思索学无止境的真谛 运动场，</p>
@@ -30,6 +28,9 @@
             <p>都能奔走自如 紫荆 凤凰、 杜鹃</p>
             <p>校园环境优美 繁花似锦</p>
           </div>
+        <a href="" class="nav_link flex_r">
+          <img src="http://www.szza.edu.cn/uploads/allimg/160603/1-160603152534215.jpg" alt="柔性传感器">
+         
         </a>
       </div>
     </div>
@@ -74,3 +75,37 @@ export default {
   }
 };
 </script>
+
+
+<style  lang="scss" scoped>
+
+.home .flex-box{
+   max-width: 1200px;
+   margin: 0 auto;
+}
+.home .flex-box .flex-display-new{
+  width:100%;
+  clear: both;
+  &.flex-sensior{
+    margin-top:20px;
+  }
+}
+.home .flex-box .flex-display-new .flex_l,.home .flex-box .flex-display-new .flex_r {
+  width:50%;
+  float: left;
+  position: relative;
+  top:0;
+  left:0;
+  height: 365px; 
+  box-sizing: border-box;
+  background-color:#f4f4f4;
+  h3,p{
+    text-shadow: none;
+    color:#313131;
+  }
+}
+.home .flex-box .text{
+  padding:30px;
+}
+</style>
+
