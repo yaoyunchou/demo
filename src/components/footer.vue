@@ -57,8 +57,8 @@
         <a class="enspan" href="tel://4009993333">
           <b class="enspan">0755-27451820</b>
         </a>
-        <p class="service-time">{{$t("navs.F1t5")}} 9:00-21:00</p>
-        <p class="service-time">{{$t("navs.F6t7")}} 9:00-18:00</p>
+        <p class="service-time">9:00-21:00</p>
+        <p class="service-time"> 9:00-18:00</p>
       </div>
     </div>
 
