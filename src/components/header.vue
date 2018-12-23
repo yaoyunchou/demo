@@ -56,7 +56,7 @@
     </transition>
 
    
-  <transition name="fade">
+    <transition name="fade">
       <div class="nav-model" v-if="modelShowTag"></div>
     </transition>
     <div class="nav-body nav-solutions" v-if="navSolutionsShowTag">
