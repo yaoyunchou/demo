@@ -36,7 +36,7 @@
           <a href="/" class="logo-img-a">
             <img class="logo-img" src="@/assets/images/rheader/logo_blue.png">
           </a>
-          <a @mouseenter="navBodyShow(4)" href="/products"><span>首页</span>  </a>
+          <router-link tag="a" @mouseenter="navBodyShow(4)" to="/products"><span>首页</span>  </router-link>
           <a @mouseenter="navBodyShow(1)" @click="navBodyClickShow(1)">
             <span :class="navHoverChosed[1]">学校产品</span>
           </a>
@@ -60,48 +60,48 @@
       <div class="nav-model" v-if="modelShowTag"></div>
     </transition>
     <div class="nav-body nav-solutions" v-if="navSolutionsShowTag">
-      <a href="/product/0">
+      <router-link to="/product/0">
         <dl v-if="soutionsChilds[0]" class="fl-first soa">
           <dd>
             <span>公立部</span>
           </dd>
         </dl>
-      </a>
-      <a href="/product/1">
+      </router-link>
+      <router-link to="/product/1">
         <dl v-if="soutionsChilds[1]" class="sob">
           <dd>
             <span>民办小学</span>
           </dd>
         </dl>
-      </a>
-      <a href="//product/2">
+      </router-link>
+       <router-link to="/product/2">
         <dl v-if="soutionsChilds[2]" class="soc">
           <dd>
             <span>民办初中</span>
           </dd>
         </dl>
-      </a>
-      <a href="/product/3">
+       </router-link>
+       <router-link to="/product/3">
         <dl v-if="soutionsChilds[3]" class="sod">
           <dd>
             <span>普通高中</span>
           </dd>
         </dl>
-      </a>
-      <a href="/product/4">
+       </router-link>
+       <router-link to="/product/4">
         <dl v-if="soutionsChilds[4]" class="soe">
           <dd>
             <span>海外部</span>
           </dd>
         </dl>
-      </a>
-      <a href="/product/5">
+       </router-link>
+      <router-link to="/product/5">
         <dl v-if="soutionsChilds[5]" class="sof">
           <dd>
             <span>国际高中</span>
           </dd>
         </dl>
-      </a>
+      </router-link>
     </div>
 
     <!-- <div class="nav-flex" v-if="navFlexShowTag">
@@ -118,13 +118,13 @@
 
     <div class="nav-supports" v-if="navSupportsShowTag">
       <p>
-        <a href="/instructions">招生须知</a>
+        <router-link to="/instructions">招生须知</router-link>
       </p>
       <p>
-        <a href="/contact-us">联系我们</a>
+       <router-link to="/contact-us">联系我们</router-link>
       </p>
       <p>
-        <a href="/entry">报名入口</a>
+        <router-link to="/entry">报名入口</router-link>
       </p>
     </div>
 
@@ -137,7 +137,6 @@ import navUserGray from "@/assets/images/rheader/profile_gray.png";
 import navUserBlue from "@/assets/images/rheader/profile_blue.png";
 
 //如果涉及到异步的数据读取使用，我们引入当前插件
-import asyncDataAPI from "@/middle/AsyncDataAPI.js";
 
 export default {
   name: "RoyoleHeader",
@@ -186,52 +185,7 @@ export default {
   mounted() {
     this.deviceWidth = document.body.clientWidth;
     //获取头像并填充
-    asyncDataAPI.login
-      .getUser()
-      .then(data => {
-        let url = data.data.data.image;
-        if (url != "") {
-          this.navUserUrl = url;
-          this.navUserHoverUrl = url;
-          this.loginOK = true;
-        } else if (this.deviceWidth < 900) {
-          this.navUserUrl = navUserGray;
-          this.loginOK = false;
-        } else {
-          this.navUserUrl = navUserWhite;
-          this.loginOK = false;
-        }
-      })
-      .catch(err => {
-        if (this.deviceWidth < 900) {
-          this.navUserUrl = navUserGray;
-        } else {
-          this.navUserUrl = navUserWhite;
-        }
-        this.loginOK = false;
-      });
-    if (this.deviceWidth < 900) {
-      this.navUserUrl = navUserGray;
-      this.loginOK = false;
-    } else {
-      this.navUserUrl = navUserWhite;
-      this.loginOK = false;
-    }
-
-    //挂载products-list
-    asyncDataAPI.nav
-      .getProductsList()
-      .then(data => {
-        if (data.status == "200") {
-          this.productsList = data.data.data;
-        } else {
-          //console.log(data.message);
-        }
-      })
-      .catch(err => {
-        //console.log("访问产品列表链接信息失败："+err);
-      });
-  },
+   },
   updated() {},
   methods: {
     navHoverShow() {

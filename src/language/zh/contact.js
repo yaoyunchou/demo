@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   UsOffice: '美国办公室',
   CnOffice: '中国深圳办公室',
   OfficeHours: '工作时间',

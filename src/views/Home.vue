@@ -4,8 +4,8 @@
     <div class="flex-box clearfix">
       <h2>校园特色</h2>
       <div class="flex-display">
-        <a href="/flexible-display" class="nav_link">
-          <img src="http://www.szza.edu.cn/uploads/allimg/170710/1-1FG011395I03.jpg" alt="柔性显示屏">
+        <a href="javascript:;" class="nav_link">
+          <img src="http://www.szza.edu.cn/uploads/allimg/170710/1-1FG011395I03.jpg" alt="">
           <div>
             <h3>优质的师资力量</h3>
             <p>深圳市桃源居中澳实验学校位于全国和谐社区、</p>
@@ -20,7 +20,7 @@
         </a>
       </div>
       <div class="flex-sensior">
-        <a href="/flexible-sensor" class="nav_link">
+        <a href="" class="nav_link">
           <img src="http://www.szza.edu.cn/uploads/allimg/160603/1-160603152534215.jpg" alt="柔性传感器">
           <div>
             <h3>优美的校园环境</h3>

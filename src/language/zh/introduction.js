@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   Overview: '柔宇简介',
   Investors: '投资机构',
   JoinUs: '招募精英',

@@ -6,32 +6,31 @@
           <dt>产品中心
             <i class="footer-nav-icon" :class="icondirection[0]"></i>
           </dt>
-          <transition name="slider">
+        
             <div>
               <dd>
-                <a href="/products">产品首页</a>
+                <router-link to="/products">产品首页</router-link>
               </dd>
               <dd>
-                <a href="/product/0">公立部</a>
+                <router-link to="/product/0">公立部</router-link>
               </dd>
               <dd>
-                <a href="/product/1">民办小学</a>
+                <router-link to="/product/1">民办小学</router-link>
               </dd>
               <dd>
-                <a href="/product/2">民办初中</a>
+                <router-link to="/product/2">民办初中</router-link>
               </dd>
               <dd>
-                <a href="/product/3">普通初中</a>
+                <router-link to="/product/3">普通初中</router-link>
               </dd>
               <dd>
-                <a href="/product/4">海外部</a>
+                <router-link to="/product/4">海外部</router-link>
               </dd>
             </div>
 
             <dd>
-              <a href="/product/5">国际高中</a>
+              <router-link to="/product/5">国际高中</router-link>
             </dd>
-          </transition>
         </dl>
 
         <dl class="targets-dl">
@@ -41,13 +40,13 @@
           <transition name="slider">
             <div>
               <dd>
-                <a href="/instructions">招生须知</a>
+                <router-link to="/instructions">招生须知</router-link>
               </dd>
               <dd>
-                <a href="/contact-us">联系我们</a>
+                <router-link to="/contact-us">联系我们</router-link>
               </dd>
               <dd>
-                <a href="/entry">报名入口</a>
+                <router-link to="/entry">报名入口</router-link>
               </dd>
             </div>
           </transition>
@@ -150,19 +149,7 @@ export default {
   computed: {},
   mounted() {
     //挂载products-list
-    asyncDataAPI.nav
-      .getProductsList()
-      .then(data => {
-        if (data.status == "200") {
-          this.productsList = data.data.data;
-        } else {
-          //console.log(data.message);
-        }
-      })
-      .catch(err => {
-        //console.log("访问产品列表链接信息失败："+err);
-      });
-    //根据屏幕大小，来判断底部显示模式，这个部分无法使用媒体查询进行适配
+   //根据屏幕大小，来判断底部显示模式，这个部分无法使用媒体查询进行适配
     if (document.body.clientWidth > 999) {
       this.icondirection = ["", "", "", "", "", ""];
       this.fshow = [true, true, true, true, true, true, true];
@@ -299,13 +286,7 @@ export default {
     langChose(lang) {
       this.langBoxShowTag = false;
       localStorage.setItem("lang", lang);
-      asyncDataAPI.nav
-        .getLanguage({
-          code: lang
-        })
-        .then(data => {})
-        .catch(err => {});
-      let srcArr = window.location.href.split("/");
+       let srcArr = window.location.href.split("/");
       let src = srcArr[srcArr.length - 1].split("?")[0].split("#")[0];
 
       if (lang == "nl" && src == "join-us") {
@@ -353,23 +334,7 @@ export default {
       this.type = this.selected[0].val;
       this.problem_type = this.selected[0].email + "@royole.com";
       //这里进行字段验证，验证规范和之前的验证规范一致，验证完毕后进行ajax提交
-      if (this.checkInput() && this.checkText()) {
-        asyncDataAPI.email
-          .PostAllInfo({
-            email: this.user_email,
-            problem_description: this.user_question_info,
-            type: this.type,
-            problem_type: this.problem_type
-          })
-          .then(data => {
-            if (data.status == "200") {
-              //回调成功邮件按钮信息通知
-              this.sendSuccess = true;
-            } else {
-              this.sendError = true;
-            }
-          });
-      }
+     
     }
   }
 };

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title1: '新闻中心',
   navTitle1: '公司动态',
   navTitle2: '媒体报道',

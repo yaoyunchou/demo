@@ -7,7 +7,7 @@ import store from './store';
 import './registerServiceWorker';
 // 引入语言包
 import CN from '@/language/zh/index.js';
-import EN from '@/language/en/index.js';
+import EN from '@/language/zh/index.js';
 // 引入样式
 import '@/assets/style/base.scss';
 // require styles

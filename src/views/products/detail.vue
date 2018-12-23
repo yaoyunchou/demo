@@ -1,4 +1,5 @@
 
+import { watch } from 'fs';
 <template>
   <div class="products">
     <div class="top"></div>
@@ -35,7 +36,7 @@
             >入学要求</a>
           </li>
           <li>
-            <a href="/entry" class="but-b open-when-111">立即报名</a>
+           <router-link tag="a" to="/entry" class="but-b open-when-111">立即报名</router-link>
           </li>
         </ul>
       </div>
@@ -326,9 +327,15 @@ export default {
       this.currentTab = index;
     }
   },
-  mounted: function() {
-    console.log(this.$route.params.id);
-    this.product = this.products[this.$route.params.id];
+  created: function() {
+    // console.log(this.$route.params.id);
+    // this.product = this.products[this.$route.params.id];
+  },
+  watch:{
+    '$route':function(){
+       console.log(this.$route.params.id);
+       this.product = this.products[this.$route.params.id];
+    }
   }
 };
 </script>

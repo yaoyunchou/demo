@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   Products: '消费者产品',
   Solutions: '行业解决方案',
   Supports: '服务与支持',
